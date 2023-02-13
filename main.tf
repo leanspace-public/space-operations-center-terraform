@@ -75,7 +75,7 @@ module "ground_stations" {
 /*************************************/
 
 locals {
-  satellite_names = ["Saturn", "Titan", "Rhea", "Iapetus"]
+  satellite_names = ["Saturn"]
 }
 
 module "satellites" {
@@ -93,7 +93,7 @@ module "remote_agent" {
   streams = {
     for i, m in local.satellite_names :
     module.satellites[m].satellite.name => {
-      gateway_id       = module.ground_stations[0].ground_stations["Puertollano"].id
+      gateway_id       = module.ground_stations[0].ground_stations["Awarua"].id
       stream_id        = module.satellites[m].stream.id
       command_queue_id = module.satellites[m].command_queue.id
       inbound_port     = 8011 + i
