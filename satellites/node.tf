@@ -105,6 +105,9 @@ module "satellite_base" {
         "soc-large-metric" : ""
       }
     }
+    "command_ack" : {
+      type = "TEXT"
+    }
   }
   sub_tags = { "satellite" : "${var.identifier}" }
 }
