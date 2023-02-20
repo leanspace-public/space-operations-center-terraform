@@ -1,6 +1,6 @@
 # space-operations-center-terraform
 
-This repository contains the configuration used for the SOC (Space Operations Center)
+This repository contains the configuration used for the SOC App (Satellite Operations Center)
 
 Please modify this project with:
 
