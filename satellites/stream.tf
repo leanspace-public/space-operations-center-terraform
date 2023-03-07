@@ -66,6 +66,14 @@ module "stream" {
             }
           EOT
     }
+    "command_ack" : {
+      data_type  = "TEXT"
+      expression = <<-EOT
+            (ctx) => {
+              return ctx['structure.payload.source_switch.command_ack.command_identifier'] ? ctx['structure.payload.source_switch.command_ack.command_identifier'] + ' | ' + ctx['structure.payload.source_switch.command_ack.status'] : null;
+            }
+          EOT
+    }
   }
 
   mappings = [
@@ -128,6 +136,7 @@ module "stream" {
     ["latitude", module.satellite_base.metrics["latitude"].id],
     ["longitude", module.satellite_base.metrics["longitude"].id],
     ["altitude", module.satellite_base.metrics["altitude"].id],
+    ["command_ack", module.satellite_base.metrics["command_ack"].id],
 
     ["camera_power", module.camera.metrics["Camera_Power"].id],
     ["camera_state", module.camera.metrics["Camera_State"].id],
