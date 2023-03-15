@@ -66,7 +66,7 @@ module "stream" {
             }
           EOT
     }
-    "command_ack" : {
+    "command_ack_status" : {
       data_type  = "TEXT"
       expression = <<-EOT
             (ctx) => {
@@ -136,7 +136,7 @@ module "stream" {
     ["latitude", module.satellite_base.metrics["latitude"].id],
     ["longitude", module.satellite_base.metrics["longitude"].id],
     ["altitude", module.satellite_base.metrics["altitude"].id],
-    ["command_ack", module.satellite_base.metrics["command_ack"].id],
+    ["command_ack_status", module.satellite_base.metrics["command_ack"].id],
 
     ["camera_power", module.camera.metrics["Camera_Power"].id],
     ["camera_state", module.camera.metrics["Camera_State"].id],
