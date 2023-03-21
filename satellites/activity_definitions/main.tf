@@ -24,14 +24,18 @@ resource "leanspace_activity_definitions" "activity_definition" {
     }
   }
   dynamic "command_mappings" {
-    for_each = each.value.command_mappings
+    for_each = each.value.command_mappings != null ? each.value.command_mappings : []
     content {
       command_definition_id = command_mappings.value.command_definition_id
       delay_in_milliseconds = command_mappings.value.delay_in_milliseconds
-      metadata_mappings {
-        activity_definition_metadata_name = command_mappings.value.metadata_mappings.activity_definition_metadata_name
-        command_definition_argument_name  = command_mappings.value.metadata_mappings.command_definition_argument_name
+      dynamic "metadata_mappings" {
+        for_each = command_mappings.value.metadata_mappings != null ? command_mappings.value.metadata_mappings : []
+        content {
+          activity_definition_metadata_name = metadata_mappings.value.activity_definition_metadata_name
+          command_definition_argument_name  = metadata_mappings.value.command_definition_argument_name
+        }
       }
     }
   }
+
 }

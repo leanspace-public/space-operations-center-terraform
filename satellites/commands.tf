@@ -140,34 +140,34 @@ module "activity_definitions" {
         {
           command_definition_id = module.command_definition.command_definition.thruster_control_plus_x.id
           delay_in_milliseconds = 0
-          metadata_mappings = {
+          metadata_mappings = [{
             activity_definition_metadata_name = "enabled"
             command_definition_argument_name  = "Open Valve"
-          }
+          }]
         },
         {
           command_definition_id = module.command_definition.command_definition.thruster_control_plus_x.id
           delay_in_milliseconds = 2000
-          metadata_mappings = {
+          metadata_mappings = [{
             activity_definition_metadata_name = "disabled"
             command_definition_argument_name  = "Open Valve"
-          }
+          }]
         },
         {
           command_definition_id = module.command_definition.command_definition.thruster_control_minus_x.id
           delay_in_milliseconds = 4000
-          metadata_mappings = {
+          metadata_mappings = [{
             activity_definition_metadata_name = "enabled"
             command_definition_argument_name  = "Open Valve"
-          }
+          }]
         },
         {
           command_definition_id = module.command_definition.command_definition.thruster_control_minus_x.id
           delay_in_milliseconds = 6000
-          metadata_mappings = {
+          metadata_mappings = [{
             activity_definition_metadata_name = "disabled"
             command_definition_argument_name  = "Open Valve"
-          }
+          }]
         }
       ]
     },
@@ -195,34 +195,34 @@ module "activity_definitions" {
         {
           command_definition_id = module.command_definition.command_definition.thruster_control_minus_x.id
           delay_in_milliseconds = 0
-          metadata_mappings = {
+          metadata_mappings = [{
             activity_definition_metadata_name = "enabled"
             command_definition_argument_name  = "Open Valve"
-          }
+          }]
         },
         {
           command_definition_id = module.command_definition.command_definition.thruster_control_minus_x.id
           delay_in_milliseconds = 2000
-          metadata_mappings = {
+          metadata_mappings = [{
             activity_definition_metadata_name = "disabled"
             command_definition_argument_name  = "Open Valve"
-          }
+          }]
         },
         {
           command_definition_id = module.command_definition.command_definition.thruster_control_plus_x.id
           delay_in_milliseconds = 4000
-          metadata_mappings = {
+          metadata_mappings = [{
             activity_definition_metadata_name = "enabled"
             command_definition_argument_name  = "Open Valve"
-          }
+          }]
         },
         {
           command_definition_id = module.command_definition.command_definition.thruster_control_plus_x.id
           delay_in_milliseconds = 6000
-          metadata_mappings = {
+          metadata_mappings = [{
             activity_definition_metadata_name = "disabled"
             command_definition_argument_name  = "Open Valve"
-          }
+          }]
         }
       ]
     }

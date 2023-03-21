@@ -13,10 +13,10 @@ variable "activity_definitions" {
     command_mappings = list(object({
       command_definition_id = string,
       delay_in_milliseconds = number,
-      metadata_mappings = object({
+      metadata_mappings = optional(list(object({
         activity_definition_metadata_name = string,
         command_definition_argument_name  = string
-      })
+      })))
     }))
   }))
 }

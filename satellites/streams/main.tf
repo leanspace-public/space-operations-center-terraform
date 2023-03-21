@@ -147,11 +147,21 @@ resource "leanspace_streams" "stream" {
               type = "FIELD"
             }
             elements {
-              data_type = "TEXT"
+              data_type = "UINTEGER"
               length {
                 unit  = "BITS"
                 type  = "FIXED"
-                value = 64
+                value = 8
+              }
+              name = "status_length"
+              type = "FIELD"
+            }
+            elements {
+              data_type = "TEXT"
+              length {
+                unit = "BYTES"
+                type = "DYNAMIC"
+                path = "structure.payload.source_switch.command_ack.status_length"
               }
               name = "status"
               type = "FIELD"
@@ -297,7 +307,7 @@ resource "leanspace_streams" "stream" {
   dynamic "mappings" {
     for_each = var.mappings
     content {
-      expression = "$..${mappings.value[0]}"
+      expression = "$.structure.payload.source_switch.realdata.${mappings.value[0]}"
       metric_id  = mappings.value[1]
     }
   }

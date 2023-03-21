@@ -12,11 +12,17 @@ resource "leanspace_access_policies" "test_release_orchestrator_policy" {
   statements {
     name = "TestEnvCreator"
     actions = [
+      "activities:createActivity",
+      "activities:createActivityDefinition",
+      "activities:deleteActivity",
+      "activities:deleteActivityDefinition",
       "activities:getActivitiesCreateCommands",
       "activities:getActivity",
       "activities:searchActivities",
+      "commands:createCommandDefinition",
       "commands:createCommands",
       "commands:createCommandsV2",
+      "commands:deleteCommandDefinition",
       "commands:deleteStagedCommands",
       "commands:getCommandQueue",
       "commands:getCreateCommandsStatusV2",
