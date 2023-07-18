@@ -13,5 +13,17 @@ variable "ground_station_ids" {
 }
 
 variable "plugins" {
-  type = tuple([string, string])
+  type = string
+}
+
+variable "route_tenant" {
+  type = string
+}
+
+variable "route_client_id" {
+  type = string
+}
+
+variable "route_client_secret" {
+  type = string
 }

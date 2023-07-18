@@ -2,3 +2,6 @@
 terraform.tfstate*
 .devcontainer/
 .DS_Store
+.idea
+*.iml
+*.jar

@@ -49,7 +49,7 @@ resource "leanspace_nodes" "satellites_node" {
 }
 
 module "pass_states" {
-  source = "states/pass"
+  source = "./states/pass"
 }
 
 module "activity_states" {
@@ -75,7 +75,7 @@ module "ground_stations" {
 /*************************************/
 
 locals {
-  satellite_names = ["Saturn"]
+  satellite_names = ["SaturnTest"]
 }
 
 module "satellites" {
@@ -84,21 +84,11 @@ module "satellites" {
   parent_node_id     = leanspace_nodes.satellites_node[0].id
   identifier         = each.value
   ground_station_ids = [for gs in module.ground_stations[0].ground_stations : gs.id]
-  plugins            = [module.plugins.command_transformer_id, module.plugins.protocol_transformer_id]
+  plugins            = module.plugins.command_transformer_id
+  route_client_id    = "<routeClientId>
+  route_client_secret = "<routeClientSecret>"
+  route_tenant = "houston"
 }
 
-module "remote_agent" {
-  source = "./satellites/remote_agents"
-  name   = "Remote Agent"
-  streams = {
-    for i, m in local.satellite_names :
-    module.satellites[m].satellite.name => {
-      gateway_id       = module.ground_stations[0].ground_stations["Awarua"].id
-      stream_id        = module.satellites[m].stream.id
-      command_queue_id = module.satellites[m].command_queue.id
-      inbound_port     = 8011 + i
-      outbound_port    = 7011 + i
-      host             = "routes"
-    }
-  }
-}
+
+
