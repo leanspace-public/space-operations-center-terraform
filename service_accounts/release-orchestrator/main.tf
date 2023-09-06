@@ -41,7 +41,22 @@ resource "leanspace_access_policies" "release_orchestrator_policy" {
       "topology:searchCommandDefinitions",
       "topology:searchNodes",
       "topology:searchTopologyTree",
-      "topology:updateNode"
+      "topology:updateNode",
+      "passes:getPass",
+      "passes:getContactState",
+      "routes:getRoute",
+      "routes:suspendRouteContainer",
+      "routes:runRouteContainer",
+      "commands:enqueueInReleaseQueue",
+      "passes:updatePass",
+      "passes:getContact",
+      "commands:clearReleaseQueue",
+      "commands:getReleaseQueue",
+      "commands:getContentSummaryFromReleaseQueue",
+      "commands:getCommandSequence",
+      "commands:getCommandSequenceCommand",
+      "passes:updateStateOfPass"
+
     ]
   }
 }

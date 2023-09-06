@@ -1,10 +1,11 @@
 
-module "command_queue" {
-  source             = "./command_queues"
-  name               = "CQ ${var.identifier}"
+module "release_queues" {
+  source             = "./release_queues"
+  name               = "RC ${var.identifier}"
   asset_id           = module.satellite_base.satellite.id
-  ground_station_ids = var.ground_station_ids
-  plugins            = var.plugins
+  plugin            = var.plugins
+  ground_station_informations = var.ground_station_informations
+  satellite_name = var.identifier
 }
 
 module "command_definition" {

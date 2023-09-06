@@ -25,3 +25,7 @@ resource "leanspace_activity_states" "activity_state_transmitted" {
 resource "leanspace_activity_states" "activity_state_transmission_failed" {
   name = "TRANSMISSION_FAILED"
 }
+
+resource "leanspace_activity_states" "activity_state_transmission_to_release_queue" {
+  name = "TRANSMITTED_TO_RELEASE_QUEUE"
+}

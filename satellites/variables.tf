@@ -8,10 +8,14 @@ variable "identifier" {
   description = "The identifier used in the satellite's tags (and its components)"
 }
 
-variable "ground_station_ids" {
-  type = list(string)
+variable "ground_station_informations" {
+  type = set(object({
+    name   = string
+    id   = string
+  }))
 }
 
 variable "plugins" {
-  type = tuple([string, string])
+  type = string
 }
+
