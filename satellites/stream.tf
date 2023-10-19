@@ -136,9 +136,11 @@ module "stream" {
     ["latitude", module.satellite_base.metrics["latitude"].id],
     ["longitude", module.satellite_base.metrics["longitude"].id],
     ["altitude", module.satellite_base.metrics["altitude"].id],
-    ["command_ack_status", module.satellite_base.metrics["command_ack"].id],
 
     ["camera_power", module.camera.metrics["Camera_Power"].id],
     ["camera_state", module.camera.metrics["Camera_State"].id],
+  ]
+  computation_mappings = [
+    ["command_ack_status", module.satellite_base.metrics["command_ack"].id],
   ]
 }

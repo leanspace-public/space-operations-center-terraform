@@ -14,6 +14,10 @@ variable "mappings" {
   type = list(tuple([string, string]))
 }
 
+variable "computation_mappings" {
+  type = list(tuple([string, string]))
+}
+
 variable "computations" {
   type = map(object({
     data_type  = string
