@@ -311,6 +311,13 @@ resource "leanspace_streams" "stream" {
       metric_id  = mappings.value[1]
     }
   }
+  dynamic "mappings" {
+    for_each = var.computation_mappings
+    content {
+      expression = "$.computations.${mappings.value[0]}"
+      metric_id  = mappings.value[1]
+    }
+  }
 }
 
 output "stream" {

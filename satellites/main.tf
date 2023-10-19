@@ -14,6 +14,6 @@ output "stream" {
   value = module.stream.stream
 }
 
-output "command_queue" {
-  value = module.command_queue.command_queue
+output "release_queue" {
+  value = module.release_queues.release_queue
 }
