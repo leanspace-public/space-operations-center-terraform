@@ -25,6 +25,18 @@ module "plugins" {
   source = "./satellites/plugins"
 }
 
+resource "leanspace_leaf_space_integrations" "integration_Connection" {
+  /*************************************/
+  /* TODO: Please modify this section  */
+  /*************************************/
+  /*
+  name       = "LeafSpace Connection"
+  username   = ""
+  password   = ""
+  domain_url = "api.leaf.space"
+  */
+}
+
 resource "leanspace_nodes" "main_node" {
   count       = 1
   name        = "SOC project"
