@@ -25,7 +25,7 @@ module "plugins" {
   source = "./satellites/plugins"
 }
 
-resource "leanspace_leaf_space_integrations" "integration_Connection" {
+resource "leanspace_leaf_space_integrations" "integration_connection" {
   /*************************************/
   /* TODO: Please modify this section  */
   /*************************************/
