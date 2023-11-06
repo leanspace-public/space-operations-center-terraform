@@ -3,6 +3,10 @@ variable "parent_node_id" {
   description = "The node in which the satellite will be created"
 }
 
+variable "leaf_space_connection_id" {
+  type = string
+}
+
 variable "identifier" {
   type        = string
   description = "The identifier used in the satellite's tags (and its components)"

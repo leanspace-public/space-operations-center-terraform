@@ -6,12 +6,20 @@ terraform {
   }
 }
 
+variable "tenant" {
+  type = string
+  /*************************************/
+  /* TODO: Please modify this section  */
+  /*************************************/
+  //default = ""
+}
+
 provider "leanspace" {
   /*************************************/
   /* TODO: Please modify this section  */
   /*************************************/
   /*
-  tenant        = ""
+  tenant        = var.tenant
   client_id     = ""
   client_secret = ""
   */
@@ -76,6 +84,7 @@ module "ground_stations" {
   source         = "./ground_stations"
   count          = 1
   parent_node_id = leanspace_nodes.ground_stations_node[0].id
+  leaf_space_connection_id = leanspace_leaf_space_integrations.integration_connection.id
   ground_stations = [
     for name, station in local.ground_stations :
     {
@@ -110,6 +119,7 @@ module "satellites" {
   tenant                      = var.tenant
   server_udp_address_tm       = each.value.address
   server_udp_port_tm          = each.value.port
+  leaf_space_connection_id = leanspace_leaf_space_integrations.integration_connection.id
   services_accounts_route = {
     client_id_ccsds_protocol_transformer     = module.service-accounts_route.service_account_route_ccsds.credentials[0].client_id
     client_secret_ccsds_protocol_transformer = module.service-accounts_route.service_account_route_ccsds.credentials[0].client_secret
