@@ -24,7 +24,7 @@ resource "leanspace_nodes" "ground_stations" {
 }
 
 resource "leanspace_leaf_space_ground_station_links" "ground_station_link" {
-  depends_on = ["resource.leanspace_leaf_space_integrations.integration_connection"]
+  depends_on = [var.leaf_space_connection_id]
 
   for_each = { for gs in var.ground_stations : gs.name => gs if gs.leafspaceId != null }
 

@@ -2,6 +2,10 @@ variable "parent_node_id" {
   type = string
 }
 
+variable "leaf_space_connection_id" {
+  type = string
+}
+
 variable "ground_stations" {
   type = set(object({
     name        = string
